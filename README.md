@@ -82,6 +82,8 @@ Contributions are welcome! Please follow these steps:
 5. Push to the branch: `git push origin feature/your-feature-name`
 6. Submit a pull request
 
+When submitting a pull request, please use the provided PR template. For bug reports, please use the bug report template.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
