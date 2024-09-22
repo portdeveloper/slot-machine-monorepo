@@ -1,7 +1,7 @@
 import { Bot, InlineKeyboard } from "grammy";
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -14,16 +14,16 @@ app.use(express.json());
 const GAME_SHORT_NAME = "slotmachine";
 const GAME_URL = `${process.env.FRONTEND_URL}`;
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get("/", (req, res) => {
+  res.send("Hello World");
 });
 
-bot.command("play", async (ctx) => {
+bot.command("play", async ctx => {
   const keyboard = new InlineKeyboard().game("Play Slot Machine");
   await ctx.replyWithGame(GAME_SHORT_NAME, { reply_markup: keyboard });
 });
 
-bot.on("callback_query:game_short_name", async (ctx) => {
+bot.on("callback_query:game_short_name", async ctx => {
   console.log("Received a callback query:", ctx.callbackQuery);
   const user_id = ctx.from.id;
   let url = `${GAME_URL}?uid=${user_id}`;
@@ -49,39 +49,39 @@ bot.on("callback_query:game_short_name", async (ctx) => {
   }
 });
 
-app.post('/setScore', async (req, res) => {
+app.post("/setScore", async (req, res) => {
   console.log("Received a setScore request:", JSON.stringify(req.body, null, 2));
   const { score, userId, inlineMessageId } = req.body;
 
   console.log("###->>> message_id", inlineMessageId);
 
   if (!score || !userId || !inlineMessageId) {
-    console.error('Missing required parameters:', { score, userId, inlineMessageId });
-    return res.status(400).json({ error: 'Missing required parameters' });
+    console.error("Missing required parameters:", { score, userId, inlineMessageId });
+    return res.status(400).json({ error: "Missing required parameters" });
   }
 
   try {
     let result;
     if (inlineMessageId) {
       result = await bot.api.setGameScore(
-        null,                  // chat_id
-        null,                  // message_id
-        parseInt(userId),      // user_id
-        parseInt(score),       // score
+        null, // chat_id
+        null, // message_id
+        parseInt(userId), // user_id
+        parseInt(score), // score
         {
           inline_message_id: inlineMessageId,
-          force: true
-        }
+          force: true,
+        },
       );
     } else {
-      throw new Error('Invalid message identifiers');
+      throw new Error("Invalid message identifiers");
     }
 
-    console.log('SetGameScore result:', JSON.stringify(result, null, 2));
-    res.status(200).json({ message: 'Score set successfully', result });
+    console.log("SetGameScore result:", JSON.stringify(result, null, 2));
+    res.status(200).json({ message: "Score set successfully", result });
   } catch (error) {
-    console.error('Error setting game score:', error);
-    res.status(500).json({ error: 'Failed to set game score', details: error.message });
+    console.error("Error setting game score:", error);
+    res.status(500).json({ error: "Failed to set game score", details: error.message });
   }
 });
 
@@ -92,6 +92,6 @@ app.listen(PORT, () => {
 
 bot.start();
 
-bot.catch((err) => {
+bot.catch(err => {
   console.error("Error in bot:", err);
 });
