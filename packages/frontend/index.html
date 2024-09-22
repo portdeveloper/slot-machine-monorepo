@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Telegram Slot Machine</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <script src="https://telegram.org/js/games.js"></script>
+    <script type="module" src="./src/game.ts"></script>
+</head>
+
+<body>
+    <div id="game">
+        <h1>Telegram Slot Machine</h1>
+        <div id="slots">🍎 🍊 🍇</div>
+        <button id="spinButton">Spin</button>
+        <p id="result"></p>
+        <div id="debugPanel" style="margin-top: 20px; text-align: left;">
+            <h3>Debug Log:</h3>
+            <pre id="debugLog"></pre>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--tg-theme-bg-color, #f0f0f0);
+  color: var(--tg-theme-text-color, #000000);
+}
+#game {
+  text-align: center;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#slots {
+  font-size: 48px;
+  margin: 20px 0;
+}
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: var(--tg-theme-button-color, #3390ec);
+  color: var(--tg-theme-button-text-color, #ffffff);
+}
+#debugPanel {
+  margin-top: 20px;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 30vh;
+}
+#debugLog {
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 0;
+  white-space: pre-wrap;       /* CSS 3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  word-break: break-all;
+}
