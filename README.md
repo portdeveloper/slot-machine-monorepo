@@ -131,20 +131,39 @@ Remember to update these URLs and environment variables when deploying to produc
 
 ## Deployment
 
-Before deploying, ensure you update the following:
+This project is configured for deployment on Fly.io. Make sure you have the Fly CLI installed and are logged in.
 
-1. In `packages/backend/.env`:
+1. Update environment variables:
 
+   In `packages/backend/.env`:
    ```
+   BOT_TOKEN=your_telegram_bot_token
    FRONTEND_URL=https://your-production-frontend-url.fly.dev
    ```
 
-2. In `packages/frontend/src/game.ts`:
-   ```typescript
-   const backendUrl = "https://your-production-backend-url.fly.dev";
+   In `packages/frontend/.env`:
+   ```
+   VITE_BACKEND_URL=https://your-production-backend-url.fly.dev
    ```
 
-Then follow the deployment steps as previously described.
+2. Deploy the frontend:
+   ```
+   pnpm run deploy:frontend
+   ```
+
+3. Deploy the backend:
+   ```
+   pnpm run deploy:backend
+   ```
+
+   Alternatively, you can deploy both at once:
+   ```
+   pnpm run deploy:all
+   ```
+
+Note: Make sure your Fly.io account has the necessary resources allocated for both the frontend and backend applications. You may need to adjust the `fly.toml` files in each package if you encounter any issues with resource allocation or scaling.
+
+For more detailed information on Fly.io deployment, refer to their [documentation](https://fly.io/docs/languages-and-frameworks/).
 
 ## Contributing
 
