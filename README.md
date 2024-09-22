@@ -1,6 +1,6 @@
-# Telegram Slot Machine
+# Telegram Slot Machine Game
 
-A fun and interactive slot machine game for Telegram, built with Node.js, Express, and Vite.
+A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
 
 ## Prerequisites
 
@@ -8,6 +8,26 @@ A fun and interactive slot machine game for Telegram, built with Node.js, Expres
 - pnpm (version specified in `package.json`)
 - Telegram Bot Token
 - Fly.io account (for deployment)
+
+## Telegram Bot Setup
+
+1. Start a chat with [@BotFather](https://t.me/BotFather) on Telegram.
+2. Send `/newbot` to create a new bot.
+3. Choose a name and username for your bot.
+4. After creating the bot, BotFather will provide you with a token. Save this token securely.
+5. Enable inline mode for your bot:
+   - Send `/setinline` to BotFather.
+   - Choose your bot.
+   - Set a placeholder message (e.g., "Play Slot Machine game directly in any chat!").
+6. Create a new game for your bot:
+   - Send `/newgame` to BotFather.
+   - Choose your bot.
+   - Set a title for the game (e.g., "Slot Machine").
+   - Provide a short description.
+   - Upload a photo (640x360 pixels) for the game.
+   - Add a demo GIF or skip the demo GIF step by sending `/empty`.
+   - Choose a short name for the game (e.g., "slotmachine").
+7. BotFather will provide you with a game link. Use this link to start developing your game.
 
 ## Setup
 
@@ -29,47 +49,93 @@ A fun and interactive slot machine game for Telegram, built with Node.js, Expres
 
    ```
    BOT_TOKEN=your_telegram_bot_token
-   FRONTEND_URL=https://your-frontend-url.fly.dev
+   FRONTEND_URL=http://localhost:5173  # For local development
    ```
+
+   Remember to replace `your_telegram_bot_token` with the actual token you received from BotFather.
 
 4. Configure the frontend URL:
    Update the `backendUrl` in `packages/frontend/src/game.ts` to match your backend deployment URL.
 
-## Development
+## Local Setup and Development
 
-To run the project locally:
+1. Clone the repository:
 
-1. Start the frontend development server:
+   ```
+   git clone https://github.com/your-username/slot-machine-monorepo.git
+   cd slot-machine-monorepo
+   ```
+
+2. Install dependencies:
+
+   ```
+   pnpm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the `packages/backend` directory with the following content:
+
+   ```
+   BOT_TOKEN=your_telegram_bot_token
+   FRONTEND_URL=http://localhost:5173  # For local development
+   ```
+
+   Remember to replace `your_telegram_bot_token` with the actual token you received from BotFather.
+
+4. Configure the frontend:
+   Update the `backendUrl` in `packages/frontend/src/game.ts`:
+
+   ```typescript
+   const backendUrl = "http://localhost:8080"; // For local development
+   ```
+
+5. Start the frontend development server:
 
    ```
    pnpm run dev:frontend
    ```
 
-2. Start the backend server:
+   This will start the Vite development server, typically on http://localhost:5173.
+
+6. In a new terminal, start the backend server:
+
    ```
    pnpm run start:backend
    ```
 
+   This will start the Express server, typically on http://localhost:3000.
+
+7. Open your browser and navigate to http://localhost:5173 to see the frontend.
+
+8. To test the Telegram integration locally, you may need to use a tool like ngrok to expose your local server to the internet. Update the `FRONTEND_URL` in your `.env` file and the `backendUrl` in the frontend code with the ngrok(or similar service) URL when testing.
+
+Remember to update these URLs and environment variables when deploying to production.
+
+## Development Workflow
+
+1. Make changes to the frontend code in `packages/frontend/src/`.
+2. Make changes to the backend code in `packages/backend/`.
+3. The frontend will automatically reload when you make changes.
+4. For backend changes, you may need to restart the server (stop it with Ctrl+C and run `pnpm run start:backend` again).
+5. Always test your changes thoroughly before committing.
+6. Use `pnpm run format` to format your code before committing.
+
 ## Deployment
 
-This project is configured for deployment on Fly.io. Make sure you have the Fly CLI installed and are logged in.
+Before deploying, ensure you update the following:
 
-1. Deploy the frontend:
+1. In `packages/backend/.env`:
 
    ```
-   pnpm run deploy:frontend
+   FRONTEND_URL=https://your-production-frontend-url.fly.dev
    ```
 
-2. Deploy the backend:
-   ```
-   pnpm run deploy:backend
+2. In `packages/frontend/src/game.ts`:
+   ```typescript
+   const backendUrl = "https://your-production-backend-url.fly.dev";
    ```
 
-Alternatively, you can deploy both at once:
-
-```
-pnpm run deploy:all
-```
+Then follow the deployment steps as previously described.
 
 ## Contributing
 
