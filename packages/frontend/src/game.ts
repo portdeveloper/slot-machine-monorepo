@@ -59,10 +59,10 @@ async function sendScore(score: number) {
   }
 
   try {
-    const backendUrl = "https://slot-machine-backend.fly.dev";
-    if (!backendUrl) {
-      throw new Error("Backend URL is not defined");
+    if (!import.meta.env.VITE_BACKEND_URL) {
+      throw new Error("VITE_BACKEND_URL is not defined in the environment");
     }
+    const backendUrl = import.meta.env.VITE_BACKEND_URL;
     log(`Sending score to: ${backendUrl}/setScore`);
     const response = await fetch(`${backendUrl}/setScore`, {
       method: "POST",

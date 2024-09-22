@@ -89,7 +89,16 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
    const backendUrl = "http://localhost:8080"; // For local development
    ```
 
-5. Start the frontend development server:
+5. Set up frontend environment variables:
+   Create a `.env` file in the `packages/frontend` directory with the following content:
+
+   ```
+   VITE_BACKEND_URL=http://localhost:8080  # For local development
+   ```
+
+   Remember to update this URL when deploying to production.
+
+6. Start the frontend development server:
 
    ```
    pnpm run dev:frontend
@@ -97,7 +106,7 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
 
    This will start the Vite development server, typically on http://localhost:5173.
 
-6. In a new terminal, start the backend server:
+7. In a new terminal, start the backend server:
 
    ```
    pnpm run start:backend
@@ -105,9 +114,9 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
 
    This will start the Express server, typically on http://localhost:3000.
 
-7. Open your browser and navigate to http://localhost:5173 to see the frontend.
+8. Open your browser and navigate to http://localhost:5173 to see the frontend.
 
-8. To test the Telegram integration locally, you may need to use a tool like ngrok to expose your local server to the internet. Update the `FRONTEND_URL` in your `.env` file and the `backendUrl` in the frontend code with the ngrok(or similar service) URL when testing.
+9. To test the Telegram integration locally, you may need to use a tool like ngrok to expose your local server to the internet. Update the `FRONTEND_URL` in your `.env` file and the `backendUrl` in the frontend code with the ngrok(or similar service) URL when testing.
 
 Remember to update these URLs and environment variables when deploying to production.
 
