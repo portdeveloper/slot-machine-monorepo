@@ -171,7 +171,7 @@ This project is configured for deployment on Fly.io. Make sure you have the Fly 
    pnpm run deploy:all
    ```
 
-Note: Make sure your Fly.io account has the necessary resources allocated for both the frontend and backend applications. You may need to adjust the `fly.toml` files in each package if you encounter any issues with resource allocation or scaling.
+Note: Make sure your Fly.io account has the necessary resources allocated for both the frontend and backend applications. You may need to adjust the `fly.toml` files in each package if you encounter any issues with resource allocation or scaling. If you have issues with env varibales not being set properly in the container for the front-end check in the Dockerfile line #15.
 
 For more detailed information on Fly.io deployment, refer to their [documentation](https://fly.io/docs/languages-and-frameworks/).
 
