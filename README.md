@@ -50,6 +50,7 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
    ```
    BOT_TOKEN=your_telegram_bot_token
    FRONTEND_URL=http://localhost:5173  # For local development
+   API_SECRET=your_chosen_api_secret
    ```
 
    Remember to replace `your_telegram_bot_token` with the actual token you received from BotFather.
@@ -78,6 +79,7 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
    ```
    BOT_TOKEN=your_telegram_bot_token
    FRONTEND_URL=http://localhost:5173  # For local development
+   API_SECRET=your_chosen_api_secret
    ```
 
    Remember to replace `your_telegram_bot_token` with the actual token you received from BotFather.
@@ -94,6 +96,7 @@ A basic slot machine game for Telegram, built with Node.js, Express, and Vite.
 
    ```
    VITE_BACKEND_URL=http://localhost:8080  # For local development
+   API_SECRET=your_chosen_api_secret
    ```
 
    Remember to update this URL when deploying to production.
@@ -136,27 +139,34 @@ This project is configured for deployment on Fly.io. Make sure you have the Fly 
 1. Update environment variables:
 
    In `packages/backend/.env`:
+
    ```
    BOT_TOKEN=your_telegram_bot_token
    FRONTEND_URL=https://your-production-frontend-url.fly.dev
+   API_SECRET=your_chosen_api_secret
    ```
 
    In `packages/frontend/.env`:
+
    ```
    VITE_BACKEND_URL=https://your-production-backend-url.fly.dev
+   API_SECRET=your_chosen_api_secret
    ```
 
 2. Deploy the frontend:
+
    ```
    pnpm run deploy:frontend
    ```
 
 3. Deploy the backend:
+
    ```
    pnpm run deploy:backend
    ```
 
    Alternatively, you can deploy both at once:
+
    ```
    pnpm run deploy:all
    ```
