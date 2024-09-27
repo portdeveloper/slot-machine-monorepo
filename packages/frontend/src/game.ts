@@ -1,3 +1,4 @@
+import { calculateDigest } from "./utils";
 const symbols = ["🍎", "🍊", "🍇", "🍒", "🍋"];
 const slots = document.getElementById("slots") as HTMLElement;
 const spinButton = document.getElementById("spinButton") as HTMLButtonElement;
@@ -63,17 +64,27 @@ async function sendScore(score: number) {
       throw new Error("VITE_BACKEND_URL is not defined in the environment");
     }
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+    if (!import.meta.env.VITE_API_SECRET) {
+      throw new Error("VITE_API_SECRET is not defined in the environment");
+    }
+    const apiSecret = import.meta.env.VITE_API_SECRET;
+
     log(`Sending score to: ${backendUrl}/setScore`);
+
+    const body = {
+      score: score,
+      userId: userId,
+      inlineMessageId: inlineMessageId,
+    };
+
     const response = await fetch(`${backendUrl}/setScore`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "payload-hash": await calculateDigest(apiSecret, body),
       },
-      body: JSON.stringify({
-        score: score,
-        userId: userId,
-        inlineMessageId: inlineMessageId,
-      }),
+      body: JSON.stringify(body),
     });
     if (!response.ok) {
       const errorData = await response.json();
