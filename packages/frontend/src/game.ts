@@ -77,7 +77,7 @@ async function sendScore(score: number) {
       userId: userId,
       inlineMessageId: inlineMessageId,
     };
-    log(`Sending score to: ${backendUrl}/setScore`);
+
     const response = await fetch(`${backendUrl}/setScore`, {
       method: "POST",
       headers: {
