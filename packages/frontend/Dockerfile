@@ -12,10 +12,10 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
-# Exposing some env var for the build on fly.io, they should be set directly in the CLI
-# eg. flyctl deploy --build-arg VITE_API_SECRET="xxx"
+#Define env arguments here
 ARG VITE_BACKEND_URL
 ENV VITE_BACKEND_URL $VITE_BACKEND_URL
+
 ARG VITE_API_SECRET
 ENV VITE_API_SECRET $VITE_API_SECRET
 

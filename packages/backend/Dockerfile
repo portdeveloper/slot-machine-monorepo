@@ -12,6 +12,19 @@ WORKDIR /app
 # Set production environment
 ENV NODE_ENV="production"
 
+#Define env arguments here
+ARG BOT_TOKEN
+ENV BOT_TOKEN $BOT_TOKEN
+
+ARG FRONTEND_URL
+ENV FRONTEND_URL $FRONTEND_URL
+
+ARG PORT
+ENV PORT $PORT
+
+ARG API_SECRET
+ENV API_SECRET $API_SECRET
+
 
 # Throw-away build stage to reduce size of final image
 FROM base as build

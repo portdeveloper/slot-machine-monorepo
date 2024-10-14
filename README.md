@@ -175,6 +175,14 @@ Note: Make sure your Fly.io account has the necessary resources allocated for bo
 
 For more detailed information on Fly.io deployment, refer to their [documentation](https://fly.io/docs/languages-and-frameworks/).
 
+## Environment Variables
+
+Deployment scripts are taking care of environement variables for you, which means that you don't need anymore to add secrets manually on fly.io. In order to add environment variables for any of the apps (front or back) follow these instructions:
+
+1. Add the desired env var in the .env file in the directory corresponding to the app (packages/frontend/.env or packages/backend/.env).
+2. Add the environement variable in the CLI command of the deployment script (deploy-back.sh or deploy-front.sh) using the already present models.
+3. Add the build ARG & ENV instructions in the corresponding Dockerfile under the `#Define env arguments here` section.
+
 ## Contributing
 
 Contributions are welcome! Please follow these steps:
