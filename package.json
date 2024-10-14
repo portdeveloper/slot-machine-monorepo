@@ -6,8 +6,8 @@
   "scripts": {
     "dev:frontend": "pnpm --filter frontend dev",
     "start:backend": "pnpm --filter backend start",
-    "deploy:frontend": "fly deploy ./packages/frontend/",
-    "deploy:backend": "fly deploy ./packages/backend/",
+    "deploy:frontend": "cd ./packages/frontend && ./deploy-front.sh",
+    "deploy:backend": "cd ./packages/backend && ./deploy-back.sh",
     "deploy:all": "pnpm run deploy:frontend && pnpm run deploy:backend",
     "format": "prettier --write \"**/*.{js,ts,json,md,html,css}\"",
     "format:check": "prettier --check \"**/*.{js,ts,json,md,html,css}\""

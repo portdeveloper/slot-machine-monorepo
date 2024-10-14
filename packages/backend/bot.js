@@ -1,7 +1,8 @@
-import { Bot, InlineKeyboard } from "grammy";
-import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import express from "express";
+import { Bot, InlineKeyboard } from "grammy";
+import { verifyDigest } from "./utils.js";
 
 dotenv.config();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 
 const GAME_SHORT_NAME = "slotmachine";
 const GAME_URL = `${process.env.FRONTEND_URL}`;
+
+const API_SECRET = `${process.env.API_SECRET}`;
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -52,12 +55,23 @@ bot.on("callback_query:game_short_name", async ctx => {
 app.post("/setScore", async (req, res) => {
   console.log("Received a setScore request:", JSON.stringify(req.body, null, 2));
   const { score, userId, inlineMessageId } = req.body;
+  const payloadHash = req.header("payload-hash");
 
   console.log("###->>> message_id", inlineMessageId);
 
   if (!score || !userId || !inlineMessageId) {
     console.error("Missing required parameters:", { score, userId, inlineMessageId });
     return res.status(400).json({ error: "Missing required parameters" });
+  }
+
+  if (!payloadHash) {
+    console.error("Missing payload-hash header");
+    return res.status(400).json({ error: "Missing payload-hash header" });
+  }
+
+  if (!verifyDigest(API_SECRET, { score, userId, inlineMessageId }, payloadHash)) {
+    console.error("The payload does not match the hash");
+    return res.status(400).json({ error: "The payload does not match the hash" });
   }
 
   try {
