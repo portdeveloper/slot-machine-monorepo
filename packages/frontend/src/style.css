@@ -5,8 +5,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: var(--tg-theme-bg-color, #000000);
-  color: var(--tg-theme-text-color, #000000);
+  background-color: #000000 !important;
   position: relative;
 }
 
@@ -15,13 +14,15 @@ body::before {
   position: absolute;
   top: 0;
   left: 0;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)), 
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), 
               url('../images/background.jpg');
-  background-size:auto;
+  background-size:cover;
   background-position: center;
-  background-repeat: repeat;
+  background-repeat:repeat;
   z-index: -1; 
 }
 
