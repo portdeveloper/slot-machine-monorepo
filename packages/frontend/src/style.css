@@ -21,6 +21,7 @@ body::before {
               url('../images/background.jpg');
   background-size:auto;
   background-position: center;
+  background-repeat: repeat;
   z-index: -1; 
 }
 
