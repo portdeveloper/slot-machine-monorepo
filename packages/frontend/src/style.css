@@ -5,9 +5,28 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: var(--tg-theme-bg-color, #f0f0f0);
-  color: var(--tg-theme-text-color, #000000);
+  background-color: #000000 !important;
+  position: relative;
 }
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), 
+              url('../images/background.jpg');
+  background-size:cover;
+  background-position: center;
+  background-repeat:repeat;
+  z-index: -1; 
+}
+
+
 #game {
   text-align: center;
   max-height: 100vh;
@@ -42,4 +61,130 @@ button {
   white-space: -o-pre-wrap; /* Opera 7 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
   word-break: break-all;
+}
+
+.buttonDesign {
+  background-color: #836EF9   !important;
+  border-color: #836EF9 !important;
+  height: 45px !important;
+  width: 250px !important;
+}
+
+#textConnecWallet {
+    /* Connect Wallet */
+    
+    width: 146px;
+    height: 18px;
+    
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #FFFFFF;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.machine-slot-style {
+  width: 600px !important;
+  opacity: 1 !important;
+  margin-left: 3rem; 
+}
+
+@media (max-width: 768px) { /* Tablet ve daha küçük ekranlar */
+  .machine-slot-style {
+    width: 350px !important; /* Küçük ekranlarda genişlik */
+    margin-left: 1rem; /* Sol boşluğu küçült */
+  }
+}
+
+.spin-button-style {
+  width: 100px;
+  opacity: 0.8;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0%; 
+  left: 0%;
+  transform: translate(0%, 0%); 
+  pointer-events: none; 
+}
+
+.button-style {
+  /* Buttons */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 24px;
+  gap: 16px;
+  border-color: #836EF9 !important;
+  width: 228px;
+  height: 40px;
+  background: linear-gradient(90deg, rgba(179, 151, 254, 0.6) 0%, #836EF9 100%);
+  backdrop-filter: blur(2px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 4px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+}
+
+.square-img {
+  width: 46px;
+  height: 46px;
+}
+
+.square-img-star {
+  width: 35px;
+  height: 35px;
+}
+
+.stat-window-1 {
+  background-color: #D0ADE2;
+  border-color: #D0ADE2 !important;
+}
+.stat-window-2 {
+  background-color: #582F6D;
+  border-color: #582F6D !important;
+}
+
+.stat-window-3 {
+  background-color: #3E1D68;
+  border-color: #3E1D68;
+}
+
+.text-purple {
+  color: #3E1D68;
+}
+
+.text-white {
+  color:white;
+}
+
+.text-18 {
+  font-size: 18px;
+}
+
+.text-20 {
+  font-size: 20px;
+}
+
+.weight-700 {
+  font-weight: 700;
 }

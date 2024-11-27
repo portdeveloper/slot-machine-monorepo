@@ -5,20 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Telegram Slot Machine</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/bootstrap-5.3.3-dist/css/bootstrap.css" />
     <script src="https://telegram.org/js/games.js"></script>
     <script type="module" src="./src/game.ts"></script>
+    <script type="module" src="./src/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
   </head>
 
   <body>
-    <div id="game">
-      <h1>Telegram Slot Machine</h1>
-      <div id="slots">🍎 🍊 🍇</div>
-      <button id="spinButton">Spin</button>
-      <p id="result"></p>
-      <div id="debugPanel" style="margin-top: 20px; text-align: left">
-        <h3>Debug Log:</h3>
-        <pre id="debugLog"></pre>
+    <div class="container mt-2">
+      <div class="row mt-2">
+        <div class="col-2"></div>
+        <div class="col-md-4 col-sm-12 d-flex justify-content-center mb-3">
+          <button class=" btn btn-primary mr-5 button-style">
+            <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-1">
+              <g clip-path="url(#clip0_275_1040)">
+              <path d="M9 0C6.61359 0 4.32281 0.948797 2.63672 2.63602C0.948898 4.32391 0.000482975 6.61301 0 9C0 11.386 0.949219 13.6768 2.63672 15.364C4.32281 17.0512 6.61359 18 9 18C11.3864 18 13.6772 17.0512 15.3633 15.364C17.0508 13.6768 18 11.386 18 9C18 6.61402 17.0508 4.32323 15.3633 2.63602C13.6772 0.948797 11.3864 0 9 0Z" fill="url(#paint0_linear_275_1040)"/>
+              <path d="M4.07413 8.90503C6.69819 7.76203 8.44756 7.00847 9.32225 6.64434C11.8226 5.6047 12.3415 5.42414 12.6804 5.41802C12.7549 5.41683 12.9208 5.43525 13.0291 5.52279C13.1191 5.59662 13.1444 5.69646 13.1571 5.76656C13.1683 5.83659 13.1838 5.9962 13.1712 6.1208C13.0362 7.54392 12.4498 10.9974 12.1516 12.5914C12.0265 13.2658 11.7776 13.4919 11.5371 13.514C11.014 13.5621 10.6174 13.1686 10.1112 12.8369C9.31944 12.3176 8.87225 11.9944 8.10303 11.4877C7.21428 10.9022 7.79085 10.5803 8.2971 10.0544C8.42928 9.91669 10.7327 7.82208 10.7763 7.63209C10.7819 7.60833 10.7876 7.51973 10.7341 7.47305C10.6821 7.42622 10.6048 7.44225 10.5485 7.45491C10.4683 7.4729 9.20413 8.30934 6.75163 9.96408C6.39303 10.2107 6.06819 10.331 5.77569 10.3246C5.45506 10.3177 4.83631 10.143 4.37647 9.99361C3.81397 9.81037 3.36538 9.71348 3.40475 9.40228C3.42444 9.24028 3.64803 9.07448 4.07413 8.90503Z" fill="white"/>
+              </g>
+              <defs>
+              <linearGradient id="paint0_linear_275_1040" x1="900" y1="0" x2="900" y2="1800" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#2AABEE"/>
+              <stop offset="1" stop-color="#229ED9"/>
+              </linearGradient>
+              <clipPath id="clip0_275_1040">
+              <rect width="24" height="24" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+            &nbsp;
+            <span class="textConnecWallet">Login with Telegram</span>
+          </button>
+        </div>
+        <div class="col-md-4 col-sm-12 d-flex justify-content-center">
+          <button class=" btn btn-primary button-style">
+            <img src="./images/cup_img.png" style="width: 30px; height: 30px;">
+            &nbsp;
+            <span class="textConnecWallet">Leaderboard</span>
+          </button>
+        </div>
+        <div class="col-2"></div>
       </div>
+      <br/>
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <img src="./images/slot_machine.png" class="machine-slot-style">
+        </div>
+      </div>
+      <div class="row mt-4 justify-content-center">
+        <div class="col-12 text-center">
+          <img src="./images/spin_button_img.png" class="spin-button-style">
+        </div>
+      </div>
+      <div class="row mt-3 justify-content-center gap-3">
+        <div class="col-2"></div>
+        <div class="col-md-2 col-sm-12 mb-2  border-1 rounded stat-window-1 text-center">
+          <div class="row  my-1 ">
+            <div class="col-1"></div>
+            <div class="col-3 d-flex align-items-center">
+              <img src="./images/chip_img.png" class="square-img" />
+            </div>
+            <div class="col-7 d-flex align-items-center">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12"><span class="textConnecWallet text-18 text-purple">Credits</span></div>
+                  <div class="col-12"><span class="weight-700 text-20 text-purple">0</span></div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-12 mb-2 border-1 rounded stat-window-2 text-center">
+          <div class="row  my-1 ">
+            <div class="col-1"></div>
+            <div class="col-3 d-flex align-items-center">
+              <img src="./images/cup_img.png" class="square-img" />
+            </div>
+            <div class="col-7 d-flex align-items-center">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12"><span class="textConnecWallet text-18 text-white">Score</span></div>
+                  <div class="col-12"><span class="weight-700 text-20 text-white">0</span></div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-12 mb-2 border-1 rounded stat-window-3 text-center">
+          <div class="row  my-1 ">
+            <div class="col-1"></div>
+            <div class="col-3 d-flex align-items-center">
+              <img src="./images/star_image.png" class="square-img-star" />
+            </div>
+            <div class="col-7 d-flex align-items-center">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12"><span class="textConnecWallet text-18 text-white">Points</span></div>
+                  <div class="col-12"><span class="weight-700 text-20 text-white">0</span></div>
+                </div>
+              </div>
+              <div class="col-1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-12 text-center">
+            <span  class="textConnecWallet text-white text-20">Please login to run the slot machine !</span>
+        </div>
+      </div>
+      
     </div>
+    <br/>
   </body>
 </html>
