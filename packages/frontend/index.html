@@ -37,7 +37,7 @@
           </button>
         </div>
         <div class="col-md-4 col-sm-12 d-flex justify-content-center">
-          <button class=" btn btn-primary button-style">
+          <button class=" btn btn-primary button-style" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="./images/cup_img.png" style="width: 30px; height: 30px;">
             &nbsp;
             <span class="textConnecWallet">Leaderboard</span>
@@ -119,5 +119,109 @@
       
     </div>
     <br/>
+
+    <!--Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content border border-3 border-light model-style">
+          <div class="container-fluid">
+            <div class="row bg-pruple">
+              <div class="col-8 py-3 text-20 weight-700 text-white"> Leaderboard </div>
+              <div class="col-4 py-3 text-20 weight-700 text-white d-flex justify-content-end">
+                <a data-bs-dismiss="modal">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.1 10.5L10 12.6L7.9 10.5L6.5 11.9L8.6 14L6.5 16.1L7.9 17.5L10 15.4L12.1 17.5L13.5 16.1L11.4 14L13.5 11.9L12.1 10.5ZM18 6V22H2V6H18ZM22 2V18H20V4H6V2H22Z" fill="#F0F0F0"/>
+                    </svg>
+                </a>
+                  
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 m-3 "> 
+                 <br>
+              </div>
+            </div>
+
+            <div class="row my-3">
+              <div class="col-4 text-center text-white text-20 weight-700">Rank</div>
+              <div class="col-4 text-center text-white text-20 weight-700">Nad</div>
+              <div class="col-4 text-center text-white text-20 weight-700">Score</div>
+            </div>
+
+            <div class="row mb-3 py-2 bg-cyan">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">37</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player <span class="weight-500">(you)</span></div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">2703</div>
+            </div>
+            
+            <!--player list-->
+            <div class="row my-1 py-2 bg-light-pink-leaderboard">
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">1</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">17203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-white">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">2</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">12203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-light-pink-leaderboard">
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">3</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">10203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-white">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">4</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">7203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-light-pink-leaderboard">
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">5</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">6203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-white">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">6</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">5203</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-light-pink-leaderboard">
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">7</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">5103</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-white">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">8</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">5003</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-light-pink-leaderboard">
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">9</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard text-18 weight-700">5201</div>
+            </div>
+
+            <div class="row my-1 py-2 bg-white">
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">10</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">player</div>
+              <div class="col-4 text-center text-purple-leaderboard  text-18 weight-700">4203</div>
+            </div>
+
+
+          </div>
+          
+          
+        </div>
+      </div>
+    </div>
   </body>
 </html>
