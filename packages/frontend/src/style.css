@@ -23,6 +23,7 @@ body::before {
   background-size:cover;
   background-position: center;
   background-repeat:repeat;
+ 
   z-index: -1; 
 }
 
@@ -173,6 +174,22 @@ button {
   color: #3E1D68;
 }
 
+.text-purple-leaderboard {
+  color:#3F2153;
+}
+
+.bg-cyan {
+  background-color: #4EF2D1;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-light-pink-leaderboard {
+  background-color: #F1D6FC;
+}
+
 .text-white {
   color:white;
 }
@@ -185,6 +202,21 @@ button {
   font-size: 20px;
 }
 
+.weight-500 {
+  font-weight: 500 !important;
+}
+
 .weight-700 {
   font-weight: 700;
+}
+
+.bg-pruple {
+  background-color: #804FA0B2;
+  opacity: 0.8;;
+}
+
+.model-style {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url('../images/leaderboard_background.png');
+  background-size:cover;
+  background-position:top;
 }
