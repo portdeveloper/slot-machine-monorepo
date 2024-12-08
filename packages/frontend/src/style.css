@@ -56,11 +56,11 @@ button {
   background-color: #f0f0f0;
   padding: 10px;
   margin: 0;
-  white-space: pre-wrap; /* CSS 3 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap; 
+  word-wrap: break-word;
   word-break: break-all;
 }
 
